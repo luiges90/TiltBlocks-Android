@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/layoutStep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generator_steps"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/tbStepLo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/tbStepHi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="2" >
+
+            <requestFocus />
+        </EditText>
+
+        <CheckBox
+            android:id="@+id/cbOptimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/optimal" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/layoutColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generator_colors"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/tbColorLo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="1" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/tbColorHi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="1" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/cbStone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/stone"
+                android:src="@drawable/stone" />
+
+            <CheckBox
+                android:id="@+id/cbRainbow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/rainbow"
+                android:src="@drawable/rainbow" />
+
+            <CheckBox
+                android:id="@+id/cbArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/arrow"
+                android:src="@drawable/up" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/cbSticky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/sticky"
+                android:src="@drawable/sticky" />
+
+            <CheckBox
+                android:id="@+id/cbGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/gate"
+                android:src="@drawable/gate1" />
+
+            <CheckBox
+                android:id="@+id/cbColorShift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/color_shift"
+                android:src="@drawable/red_shift" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <CheckBox
+                android:id="@+id/cbNoMatchArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/no_match_area"
+                android:src="@drawable/blur_area" />
+
+            <CheckBox
+                android:id="@+id/cbWrap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ImageView06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/wrap"
+                android:src="@drawable/wrap1" />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

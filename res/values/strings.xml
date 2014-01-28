@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tilt Blocks</string>
+    <string name="internal_error">Sorry! I have encountered an unexpected situation. 
+        That\'s my fault. </string>
+    <string name="level">Level:</string>
+    <string name="step">Step:</string>
+    <string name="content_move_up">Move all blocks up</string>
+    <string name="content_move_left">Move all blocks to the left</string>
+    <string name="content_move_down">Move all blocks down</string>
+    <string name="content_move_right">Move all blocks to the right</string>
+    <string name="instruction1">        Eliminate blocks</string>
+    <string name="instruction2">        by moving them and putting them together. You can move them
+        by clicking on the arrows </string>
+    <string name="instruction3">        and all of them will move in same direction all the way
+        until they hit something (e.g. a wall or another block).</string>
+    <string name="retry">Retry</string>
+    <string name="menu">Menu</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
+    <string name="play">Play</string>
+    <string name="back">Back</string>
+    <string name="solve">Solve</string>
+    <string name="generate_short">Gen.</string>
+    <string name="level_failed">Level failed&#8230;</string>
+    <string name="too_many_steps">No more steps!</string>
+    <string name="level_cleared">Level cleared!</string>
+    <string name="steps_remain">Steps remain:</string>
+    <string name="next_level">Next</string>
+    <string name="start_game">Start Game</string>
+    <string name="clear_progress">Clear Progress</string>
+    <string name="restore_progress">Restore Progress</string>
+    <string name="level_select">Level Select</string>
+    <string name="level_editor">Level Editor</string>
+    <string name="load_level">Load Level</string>
+    <string name="cleared_progress">Progress has been cleared.</string>
+    <string name="restored_progress">Progress has been restored.</string>
+    <string name="game_beaten">You have beaten the game!!</string>
+    <string name="congratualtions">Congratulations!!</string>
+    <string name="block">Block</string>
+    <string name="wall">Wall</string>
+    <string name="control_arrows">Control arrows</string>
+    <string name="msg_invalid_input">Inavlid input</string>
+    <string name="msg_saved_level">Level successfully saved.</string>
+    <string name="msg_deleted_level">Level successfully deleted.</string>
+    <string name="msg_fail_to_save_level">Sorry, but level saving failed.</string>
+    <string name="msg_fail_to_load_level">Sorry, but some levels failed to load.</string>
+    <string name="msg_are_you_sure_to_delete_level">Are you sure to delete this level?</string>
+    <string name="delete_level">Delete level</string>
+    <string name="cancel">Cancel</string>
+    <string name="solution_of_level">Solution: </string>
+    <string name="no_solution">This level is definitely impossible. You may need to tweak your level.</string>
+    <string name="not_enough_step">Unable to solve this level within %d steps. Maybe raise your step limit? </string>
+    <string name="generator">Level Generator</string>
+    <string name="generator_steps">Steps:</string>
+    <string name="generator_colors">Colors: </string>
+    <string name="to">to</string>
+    <string name="generator_solve">Ensure solvability</string>
+    <string name="generate">Generate</string>
+    <string name="stone">Stone Blocks</string>
+    <string name="rainbow">Rainbow Blocks</string>
+    <string name="arrow">Arrows</string>
+    <string name="sticky">Stickies</string>
+    <string name="gate">Gates</string>
+    <string name="color_shift">Color Shifts</string>
+    <string name="no_match_area">No Match Areas</string>
+    <string name="wrap">Wraps</string>
+    <string name="optimal">Optimal</string>
+    <!-- problem reporting -->
+    <string name="about">About</string>
+    <string name="help">Help</string>
+    <string name="level_editor_help_title">Level Editor Usage</string>
+    <string name="level_editor_help">        Usage: Tap to choose an element from the palette, then touch the empty area 
+        	   to add the element.\n
+        \n
+        \n
+        Step: Specify the level\'s step limit here.\n\n
+        Save: Save the level so that it can be loaded later.\n\n
+        Load: Load a previously saved level.\n\n
+        Gen.: Generate a level, specifying number of steps and colors of blocks, 
+              as well as special elements present. Levels generated are guaranteed to 
+              be solvable.
+        	  May take considerable amount of time, especially if step limit is high.\n\n
+        Solve: Solve the currently shown level within specified step limit. May 
+               take considerable amount of time, especially if step limit is high.\n\n
+        Play: Play the currently shown level.\n\n
+        Menu: Back to game menu.</string>
+    <string name="level_load_help_1">Click picture to load.</string>
+    <string name="level_load_help_2">Long click picture to delete.</string>
+    <string name="report_problem">Report an issue</string>
+    <string name="report_problem_dialog_title">Report an issue to developers</string>
+    <string name="report_email_title">TiltBlocks Issue Report</string>
+    <string name="report_email_content">[Enter here how you break Tiltblocks, and provide as much detail as possible so that we can fix
+it promptly, thank you.]\n
+\n
+-------------------------------------------------------\n  
+The following are System information, you don\'t need to change them and please don\'t change them.\n
+\n</string>
+    <string name="report_model">Device Model</string>
+    <string name="report_android_version">Android Version</string>
+    <string name="report_app_version">App Version</string>
+    <string name="report_msg_no_email_client">No E-mail App available.</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="cc_license">Creative Commons License</string>
+    <string name="about_text">Created by \"C House\"\n
+        luiges90@gmail.com\n
+        \n
+        &#169; C House \n</string>
+	<string name="licensing">
+Copyright &#169; 2014 WONG Wing Lun
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	    
+	</string>
+    <string name="about_privacy_policy_title">Privacy Policy</string>
+    <string name="about_privacy_policy">
+        This App uses AdMob for providing ads. Read about them at http://www.admob.com/\n
+        \n
+        This App uses Google Analytics to track how you use this app (i.e. Telemetry data), 
+        such that developers can make this app better. It includes: \n
+        - Access of game functions \n
+        - Your game progress \n
+        No personally identifible information 
+        will be collected. Read about them at http://www.google.com/analytics/\n</string>
+    <string name="about_3rd_party_title">3rd Party Licenses</string>
+    <string name="about_3rd_party_licenses">Nine Old Androids (http://nineoldandroids.com/)
+\n        
+\n  Copyright 2012 Jake Wharton
+\n  
+\n  Licensed under the Apache License, Version 2.0 (the "License");
+\n  you may not use this file except in compliance with the License.
+\n  You may obtain a copy of the License at
+\n  
+\n     http://www.apache.org/licenses/LICENSE-2.0
+\n  
+\n  Unless required by applicable law or agreed to in writing, software
+\n  distributed under the License is distributed on an "AS IS" BASIS,
+\n  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+\n  See the License for the specific language governing permissions and
+\n  limitations under the License.</string>
+    <string name="do_not_track">Do not track how I use the app.</string>
+
+</resources>

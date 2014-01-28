@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFF77"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center" >
+    
+    <TextView
+        android:id="@+id/txTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:shadowColor="#FFCC00"
+        android:shadowDx="0.01"
+        android:shadowDy="0.01"
+        android:shadowRadius="40"
+        android:text="@string/congratualtions"
+        android:textColor="#FF0000"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/txClearedStepRemain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:shadowColor="#666666"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.01"
+        android:text="@string/game_beaten"
+        android:textColor="#AAAAAA"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnClearedMenu"
+        style="@style/buttonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@drawable/button"
+        android:text="@string/menu" />
+
+</LinearLayout>

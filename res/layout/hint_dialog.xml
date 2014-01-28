@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCFF7700"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="8dp"
+    android:shadowColor="#CCFFCC77"
+    android:shadowDx="0.01"
+    android:shadowDy="0.01"
+    android:shadowRadius="40"
+    android:gravity="center_horizontal" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#666666"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.01"
+        android:text="@string/instruction1"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:contentDescription="@string/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:contentDescription="@string/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b2" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:contentDescription="@string/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b3" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:contentDescription="@string/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/b4" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:contentDescription="@string/block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rainbow" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#666666"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.01"
+        android:text="@string/instruction2"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:contentDescription="@string/control_arrows"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/arrow_control_panel" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="#666666"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.01"
+        android:text="@string/instruction3"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:contentDescription="@string/wall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/wall" />
+
+</LinearLayout>
