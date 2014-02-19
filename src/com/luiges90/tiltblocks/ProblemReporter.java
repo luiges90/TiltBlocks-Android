@@ -62,26 +62,26 @@ public class ProblemReporter {
 
         sb.append(activity.getString(R.string.report_email_content));
 
-        sb.append(activity.getString(R.string.report_model) + ":" + 
+        sb.append(activity.getString(R.string.report_model) + ":" +
                 Build.MANUFACTURER + " " + Build.MODEL + "\n");
         sb.append(activity.getString(R.string.report_android_version) + ":" +
                 Build.VERSION.RELEASE + "\n");
         PackageInfo pInfo;
         try {
             pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
-            sb.append(activity.getString(R.string.report_app_version) + ":" + pInfo.versionName + "\n");
+            sb.append(activity.getString(R.string.report_app_version) + ":" + pInfo.versionName
+                    + "\n");
         } catch (NameNotFoundException e) {
         }
-        
-        
+
         return sb.toString();
     }
 
     public static void report(Activity activity) {
         EasyTracker.getInstance(activity).send(
                 MapBuilder.createEvent("report", "report", "access report issue button", null)
-                    .build());
-        
+                        .build());
+
         createScreenshot(activity);
 
         Intent i = new Intent(Intent.ACTION_SEND);
@@ -101,7 +101,7 @@ public class ProblemReporter {
             activity.startActivity(Intent.createChooser(i,
                     activity.getString(R.string.report_problem_dialog_title)));
         } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(activity, activity.getString(R.string.report_msg_no_email_client), 
+            Toast.makeText(activity, activity.getString(R.string.report_msg_no_email_client),
                     Toast.LENGTH_SHORT).show();
         }
     }

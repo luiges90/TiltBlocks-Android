@@ -20,7 +20,7 @@ import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 
 public class MenuActivity extends Activity {
-    
+
     public static final String TRACK_PREF_KEY = "ga_tracking";
 
     private Button btnClear;
@@ -90,16 +90,19 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_menu);
 
         PreferenceManager.getDefaultSharedPreferences(this)
-                .registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-                    @Override
-                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
-                            String key) {
-                        if (key.equals(TRACK_PREF_KEY)) {
-                            GoogleAnalytics.getInstance(getApplicationContext()).setAppOptOut(
-                                    sharedPreferences.getBoolean(key, false));
-                        }
-                    }
-                });
+                .registerOnSharedPreferenceChangeListener(
+                        new SharedPreferences.OnSharedPreferenceChangeListener() {
+                            @Override
+                            public void onSharedPreferenceChanged(
+                                    SharedPreferences sharedPreferences,
+                                    String key) {
+                                if (key.equals(TRACK_PREF_KEY)) {
+                                    GoogleAnalytics.getInstance(getApplicationContext())
+                                            .setAppOptOut(
+                                                    sharedPreferences.getBoolean(key, false));
+                                }
+                            }
+                        });
 
         final Button start = (Button) this.findViewById(R.id.btnStartGame);
 

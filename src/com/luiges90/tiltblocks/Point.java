@@ -38,6 +38,5 @@ public class Point {
     public String toString() {
         return "Point [c=" + c + ", r=" + r + "]";
     }
-    
-    
+
 }

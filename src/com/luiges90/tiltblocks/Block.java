@@ -8,13 +8,13 @@ import android.graphics.Bitmap;
 public class Block implements Serializable {
 
     private static final long serialVersionUID = 7490366358636618291L;
-    
+
     private char type, shownType;
     private int row, col; // logical position
     private float drawRow, drawCol; // drawn position
     private boolean eliminated;
     private float opacity;
-    
+
     public Block(char type, int r, int c) {
         this.type = type;
         this.shownType = type;
@@ -25,7 +25,7 @@ public class Block implements Serializable {
         this.eliminated = false;
         this.opacity = 1;
     }
-    
+
     public Block(Block b) {
         this.type = b.type;
         this.shownType = b.shownType;

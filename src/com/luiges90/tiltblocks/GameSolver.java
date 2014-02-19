@@ -17,14 +17,14 @@ public class GameSolver {
 
     private final boolean containMoveWall;
     private final boolean containChangeColor;
-    
+
     private int totalStepTracked = 0;
     private int totalStepPruned = 0;
-    
+
     public interface OnProgressListener {
         public void onProgressUpdate(int step);
     }
-    
+
     private OnProgressListener progressListener;
 
     private final boolean containMoveWall() {
@@ -58,10 +58,10 @@ public class GameSolver {
         containMoveWall = containMoveWall();
         containChangeColor = containChangeColor();
     }
-    
+
     public GameSolver(GameField field, OnProgressListener listener) {
         this(field);
-        
+
         progressListener = listener;
     }
 
@@ -107,10 +107,10 @@ public class GameSolver {
             }
         } else {
             for (Map.Entry<Character, List<Point>> e : blockPositions.entrySet()) {
-                if (e.getKey() == BlockType.BLOCK_1 || 
-                        e.getKey() == BlockType.BLOCK_2 || 
-                        e.getKey() == BlockType.BLOCK_3 || 
-                        e.getKey() == BlockType.BLOCK_4 || 
+                if (e.getKey() == BlockType.BLOCK_1 ||
+                        e.getKey() == BlockType.BLOCK_2 ||
+                        e.getKey() == BlockType.BLOCK_3 ||
+                        e.getKey() == BlockType.BLOCK_4 ||
                         e.getKey() == BlockType.BLOCK_RAINBOW) {
                     totalBlock += e.getValue().size();
                 }
@@ -161,12 +161,12 @@ public class GameSolver {
     private int dls_r(GameField field, int currentStep, char dir,
             List<Character> steps, List<GameField> pastFields) {
         int solvedSteps;
-        
+
         totalStepTracked++;
 
         steps.add(dir);
         pastFields.add(new GameField(field));
-        
+
         switch (dir) {
             case GameField.UP:
                 field.moveUp();
@@ -181,10 +181,10 @@ public class GameSolver {
                 field.moveRight();
                 break;
         }
-        
+
         boolean completed = field.checkComplete();
         boolean ignoreOpposite = !field.hasAnyBlockEliminated() && !field.hasAnyBlockWrapped() &&
-                !field.hasAnyBlockCrossedArrow() && !field.hasAnyBlockSticked() && 
+                !field.hasAnyBlockCrossedArrow() && !field.hasAnyBlockSticked() &&
                 !field.hasAnyBlockShifted() && !containMoveWall;
 
         if (completed) {
@@ -202,7 +202,8 @@ public class GameSolver {
             boolean hardImpossible = true;
 
             if ((dir != GameField.UP) && (dir != GameField.DOWN || !ignoreOpposite)) {
-                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.UP, steps, pastFields);
+                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.UP, steps,
+                        pastFields);
                 if (solvedSteps == COMPLETED) {
                     return COMPLETED;
                 }
@@ -212,7 +213,8 @@ public class GameSolver {
             }
 
             if ((dir != GameField.LEFT) && (dir != GameField.RIGHT || !ignoreOpposite)) {
-                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.LEFT, steps, pastFields);
+                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.LEFT, steps,
+                        pastFields);
                 if (solvedSteps == COMPLETED) {
                     return COMPLETED;
                 }
@@ -222,7 +224,8 @@ public class GameSolver {
             }
 
             if ((dir != GameField.DOWN) && (dir != GameField.UP || !ignoreOpposite)) {
-                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.DOWN, steps, pastFields);
+                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.DOWN, steps,
+                        pastFields);
                 if (solvedSteps == COMPLETED) {
                     return COMPLETED;
                 }
@@ -232,7 +235,8 @@ public class GameSolver {
             }
 
             if ((dir != GameField.RIGHT) && (dir != GameField.LEFT || !ignoreOpposite)) {
-                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.RIGHT, steps, pastFields);
+                solvedSteps = dls_r(new GameField(field), currentStep + 1, GameField.RIGHT, steps,
+                        pastFields);
                 if (solvedSteps == COMPLETED) {
                     return COMPLETED;
                 }
@@ -263,7 +267,8 @@ public class GameSolver {
 
         currentLimit = limit;
 
-        solvedSteps = dls_r(new GameField(field), 1, GameField.UP, solution, new ArrayList<GameField>());
+        solvedSteps = dls_r(new GameField(field), 1, GameField.UP, solution,
+                new ArrayList<GameField>());
         if (solvedSteps == COMPLETED) {
             return solution;
         }
@@ -271,7 +276,8 @@ public class GameSolver {
             hardImpossible = false;
         }
 
-        solvedSteps = dls_r(new GameField(field), 1, GameField.LEFT, solution, new ArrayList<GameField>());
+        solvedSteps = dls_r(new GameField(field), 1, GameField.LEFT, solution,
+                new ArrayList<GameField>());
         if (solvedSteps == COMPLETED) {
             return solution;
         }
@@ -279,7 +285,8 @@ public class GameSolver {
             hardImpossible = false;
         }
 
-        solvedSteps = dls_r(new GameField(field), 1, GameField.DOWN, solution, new ArrayList<GameField>());
+        solvedSteps = dls_r(new GameField(field), 1, GameField.DOWN, solution,
+                new ArrayList<GameField>());
         if (solvedSteps == COMPLETED) {
             return solution;
         }
@@ -287,7 +294,8 @@ public class GameSolver {
             hardImpossible = false;
         }
 
-        solvedSteps = dls_r(new GameField(field), 1, GameField.RIGHT, solution, new ArrayList<GameField>());
+        solvedSteps = dls_r(new GameField(field), 1, GameField.RIGHT, solution,
+                new ArrayList<GameField>());
         if (solvedSteps == COMPLETED) {
             return solution;
         }
@@ -305,11 +313,11 @@ public class GameSolver {
     public int getTotalStepTracked() {
         return totalStepTracked;
     }
-    
+
     public int getTotalStepPruned() {
         return totalStepPruned;
     }
-    
+
     public boolean solvableInSteps(int step) {
         List<Character> solution = null;
         for (int i = 0; i < step; ++i) {
@@ -317,7 +325,7 @@ public class GameSolver {
             if (solution == null || solution.size() > 0)
                 break;
         }
-        return solution != null && solution.size() > 0; 
+        return solution != null && solution.size() > 0;
     }
 
     /**
@@ -329,7 +337,7 @@ public class GameSolver {
         List<Character> solution = null;
         totalStepTracked = 0;
         totalStepPruned = 0;
-        
+
         for (int i = 0; i < field.getStepLimit(); ++i) {
             if (progressListener != null) {
                 progressListener.onProgressUpdate(i);
@@ -338,9 +346,9 @@ public class GameSolver {
             if (solution == null || solution.size() > 0)
                 break;
         }
-        
+
         char[] result;
-        
+
         if (solution == null) {
             result = null;
         } else if (solution.size() == 0) {
@@ -351,7 +359,7 @@ public class GameSolver {
                 result[i] = solution.get(i);
             }
         }
-        
+
         return result;
     }
 

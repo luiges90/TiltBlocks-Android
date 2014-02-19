@@ -33,7 +33,7 @@ public class GameActivity extends Activity {
     public static final String LOG_TAG = "GAME_LOG";
     public static final String INTENT_SET_LEVEL = "playLevel";
     public static final String INTENT_FIELD = "field";
-    
+
     public static final String STATE_LEVEL = "tiltblocks_level";
     public static final String STATE_FIELD = "tiltblocks_field";
     public static final String STATE_GAME_STATE = "tiltblocks_gamestate";
@@ -46,7 +46,7 @@ public class GameActivity extends Activity {
 
     private Progress progress;
     private int level;
-    
+
     private int gameState = GAME_STATE_PLAYING;
 
     private void unexpectedErrorOccurred(String msg, Exception e) {
@@ -82,7 +82,8 @@ public class GameActivity extends Activity {
             if (loadField == null) {
                 String fileName = GameField.getLevelNameString(level);
 
-                is = this.getAssets().open("levels/" + fileName + ".txt", AssetManager.ACCESS_BUFFER);
+                is = this.getAssets().open("levels/" + fileName + ".txt",
+                        AssetManager.ACCESS_BUFFER);
                 byte[] levelData = new byte[GameField.getLevelDataLength()];
                 is.read(levelData);
 
@@ -109,25 +110,25 @@ public class GameActivity extends Activity {
         final ImageButton down = (ImageButton) this.findViewById(R.id.btnDown);
         final ImageButton left = (ImageButton) this.findViewById(R.id.btnLeft);
         final ImageButton right = (ImageButton) this.findViewById(R.id.btnRight);
-        
+
         if (field.getLastStep() == GameField.UP) {
             up.setImageDrawable(getResources().getDrawable(R.drawable.up_button_done));
         } else {
             up.setImageDrawable(getResources().getDrawable(R.drawable.up_button));
         }
-        
+
         if (field.getLastStep() == GameField.DOWN) {
             down.setImageDrawable(getResources().getDrawable(R.drawable.down_button_done));
         } else {
             down.setImageDrawable(getResources().getDrawable(R.drawable.down_button));
         }
-        
+
         if (field.getLastStep() == GameField.LEFT) {
             left.setImageDrawable(getResources().getDrawable(R.drawable.left_button_done));
         } else {
             left.setImageDrawable(getResources().getDrawable(R.drawable.left_button));
         }
-        
+
         if (field.getLastStep() == GameField.RIGHT) {
             right.setImageDrawable(getResources().getDrawable(R.drawable.right_button_done));
         } else {
@@ -287,7 +288,7 @@ public class GameActivity extends Activity {
         } else {
             nextLevel.setVisibility(View.VISIBLE);
             nextLevel.setOnClickListener(new OnClickListener() {
-    
+
                 @Override
                 public void onClick(View arg0) {
                     if (!isInEditor()) {
@@ -298,14 +299,14 @@ public class GameActivity extends Activity {
                     gameState = GAME_STATE_PLAYING;
                     dialog.dismiss();
                 }
-    
+
             });
         }
 
         Button menu = (Button) dialog.findViewById(R.id.btnClearedMenu);
         menu.setText(
                 isInEditor() ? this.getResources().getString(R.string.back) :
-                    this.getResources().getString(R.string.menu)
+                        this.getResources().getString(R.string.menu)
                 );
         menu.setOnClickListener(new OnClickListener() {
 
@@ -363,7 +364,7 @@ public class GameActivity extends Activity {
         Button menu = (Button) dialog.findViewById(R.id.btnFailedMenu);
         menu.setText(
                 isInEditor() ? this.getResources().getString(R.string.back) :
-                    this.getResources().getString(R.string.menu)
+                        this.getResources().getString(R.string.menu)
                 );
         menu.setOnClickListener(new OnClickListener() {
 
@@ -405,14 +406,14 @@ public class GameActivity extends Activity {
         savedInstanceState.putInt(STATE_GAME_STATE, gameState);
         savedInstanceState.putInt(STATE_LEVEL, level);
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.game_action, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -426,7 +427,7 @@ public class GameActivity extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    
+
     private void showHintDialog() {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -458,11 +459,11 @@ public class GameActivity extends Activity {
             }
         } else {
             level = savedInstanceState.getInt(STATE_LEVEL);
-            
+
             field = (AnimatedGameField) savedInstanceState.getSerializable(STATE_FIELD);
             field.setGameView(this.getGameView());
             updateText();
-            
+
             setArrowDrawable();
 
             gameState = savedInstanceState.getInt(STATE_GAME_STATE);
@@ -472,7 +473,7 @@ public class GameActivity extends Activity {
                 showFailedDialog();
             }
         }
-        
+
         if (isInEditor()) {
             Button menu = (Button) this.findViewById(R.id.btnMenu);
             menu.setText(getResources().getString(R.string.back));
@@ -481,7 +482,7 @@ public class GameActivity extends Activity {
         bindArrows();
         bindButtons();
     }
-    
+
     @Override
     public void onStart() {
         super.onStart();

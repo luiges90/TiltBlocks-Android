@@ -5,5 +5,5 @@ import com.luiges90.tiltblocks.GameField;
 public interface GameGeneratorInterface {
 
     public GameField generate(GeneratorOption opt);
-    
+
 }

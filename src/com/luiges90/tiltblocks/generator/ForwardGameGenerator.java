@@ -14,7 +14,7 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
 
     public ForwardGameGenerator() {
     }
-    
+
     private GeneratorOption opt;
 
     /**
@@ -60,7 +60,7 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
 
                 char code;
                 if (opt.rainbow && Utility.chance(30)) {
-                     code = BlockType.BLOCK_RAINBOW;
+                    code = BlockType.BLOCK_RAINBOW;
                 } else {
                     switch (i) {
                         case 0:
@@ -105,12 +105,12 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                 area.remove(p);
             }
         }
-        
+
         if (opt.arrow) {
             int cnt = Utility.randBetween(0, 6);
             for (int i = 0; i < cnt && area.size() > 0; ++i) {
                 Point p = Utility.randomPick(area);
-                
+
                 List<Character> arrows = new ArrayList<Character>();
                 arrows.add(BlockType.MOVE_UP);
                 arrows.add(BlockType.MOVE_DOWN);
@@ -120,7 +120,7 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                 area.remove(p);
             }
         }
-        
+
         if (opt.sticky) {
             int cnt = Utility.randBetween(0, 3);
             for (int i = 0; i < cnt && area.size() > 0; ++i) {
@@ -129,14 +129,14 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                 area.remove(p);
             }
         }
-        
+
         if (opt.gate) {
             int typeCnt = Utility.randBetween(0, 4);
             for (int i = 0; i < typeCnt && area.size() > 0; ++i) {
                 int switchCnt = Utility.randBetween(1, 2);
                 for (int j = 0; j < switchCnt && area.size() > 0; ++j) {
                     Point p = Utility.randomPick(area);
-                    
+
                     char code;
                     switch (i) {
                         case 0:
@@ -154,15 +154,15 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                         default:
                             throw new AssertionError("color too large");
                     }
-                    
+
                     f.setBlockAt(p.r, p.c, code);
                     area.remove(p);
                 }
-                
+
                 int eachCnt = Utility.randBetween(1, 8);
                 for (int j = 0; j < eachCnt && area.size() > 0; ++j) {
                     Point p = Utility.randomPick(area);
-                    
+
                     char code;
                     switch (i) {
                         case 0:
@@ -180,18 +180,18 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                         default:
                             throw new AssertionError("color too large");
                     }
-                    
+
                     f.setBlockAt(p.r, p.c, code);
                     area.remove(p);
                 }
             }
         }
-        
+
         if (opt.shift) {
             int cnt = Utility.randBetween(0, 3);
             for (int i = 0; i < cnt && area.size() > 0; ++i) {
                 Point p = Utility.randomPick(area);
-                
+
                 List<Character> arrows = new ArrayList<Character>();
                 arrows.add(BlockType.SHIFT_1);
                 arrows.add(BlockType.SHIFT_2);
@@ -202,7 +202,7 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                 area.remove(p);
             }
         }
-        
+
         if (opt.nomatch) {
             int cnt = Utility.randBetween(0, 8);
             for (int i = 0; i < cnt && area.size() > 0; ++i) {
@@ -211,14 +211,14 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                 area.remove(p);
             }
         }
-        
+
         if (opt.wrap) {
             int typeCnt = Utility.randBetween(0, 4);
             for (int i = 0; i < typeCnt && area.size() > 0; ++i) {
                 int eachCnt = Utility.randBetween(2, 4);
                 for (int j = 0; j < eachCnt && area.size() > 0; ++j) {
                     Point p = Utility.randomPick(area);
-                    
+
                     char code;
                     switch (i) {
                         case 0:
@@ -236,7 +236,7 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
                         default:
                             throw new AssertionError("color too large");
                     }
-                    
+
                     f.setBlockAt(p.r, p.c, code);
                     area.remove(p);
                 }
@@ -255,10 +255,10 @@ public class ForwardGameGenerator implements GameGeneratorInterface {
 
             char[] solution = f.solve();
             if (solution != null && solution.length >= opt.stepLo) {
-                if (opt.optimal){
+                if (opt.optimal) {
                     f.setStepLimit(solution.length);
                 }
-                
+
                 return f;
             }
 

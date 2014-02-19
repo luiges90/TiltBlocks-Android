@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class GameView extends View {
-    
+
     private GameField field;
 
     public GameView(Context context) {
@@ -25,7 +25,7 @@ public class GameView extends View {
     public GameView(Context context, AttributeSet as, int i) {
         super(context, as, i);
     }
-    
+
     public void setField(GameField field) {
         this.field = field;
     }
@@ -33,11 +33,11 @@ public class GameView extends View {
     private Rect src = new Rect();
     private RectF dest = new RectF();
     private Paint paint = new Paint();
-    
+
     public float getBlockWidth() {
         return this.getWidth() / GameField.BOARD_SIZE;
     }
-    
+
     public float getBlockHeight() {
         return this.getHeight() / GameField.BOARD_SIZE;
     }
@@ -45,8 +45,9 @@ public class GameView extends View {
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(Color.BLACK);
         Context context = getContext();
-        
-        if (field == null) return;
+
+        if (field == null)
+            return;
 
         float hSize = getBlockWidth();
         float vSize = getBlockHeight();

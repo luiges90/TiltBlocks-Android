@@ -53,7 +53,7 @@ public class LevelEditorActivity extends Activity {
         private int stepLimit;
         private LevelEditorActivity activity;
         private GameField field;
-        
+
         private int progress;
 
         public SolveTask(LevelEditorActivity activity, int stepLimit) {
@@ -76,14 +76,14 @@ public class LevelEditorActivity extends Activity {
                 public void onCancel(DialogInterface dialog) {
                     EasyTracker.getInstance(activity).send(
                             MapBuilder.createEvent("level_editor", "solve", "quit early", null)
-                                .build());
+                                    .build());
                     cancel(true);
                     activity.solveTask = null;
                 }
 
             });
             pd.show();
-            
+
             publishProgress(progress);
         }
 
@@ -114,8 +114,8 @@ public class LevelEditorActivity extends Activity {
             if (pd != null) {
                 EasyTracker.getInstance(activity).send(
                         MapBuilder.createEvent("level_editor", "solve", "solved", null)
-                            .build());
-                
+                                .build());
+
                 pd.dismiss();
                 activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -160,7 +160,7 @@ public class LevelEditorActivity extends Activity {
                 public void onCancel(DialogInterface dialog) {
                     EasyTracker.getInstance(activity).send(
                             MapBuilder.createEvent("level_editor", "generate", "quit early", null)
-                                .build());
+                                    .build());
                     cancel(true);
                     activity.generateTask = null;
                 }
@@ -177,14 +177,14 @@ public class LevelEditorActivity extends Activity {
         @Override
         protected GameField doInBackground(GeneratorOption... params) {
             GameGeneratorInterface gg;
-            
-            if ((params[0].optimal && params[0].stepLo > 6) || 
+
+            if ((params[0].optimal && params[0].stepLo > 6) ||
                     (!params[0].optimal && params[0].stepLo > 10)) {
                 gg = new ForwardGameGenerator();
             } else {
                 gg = new BackwardGameGenerator();
             }
-            
+
             return gg.generate(params[0]);
         }
 
@@ -193,14 +193,14 @@ public class LevelEditorActivity extends Activity {
             if (pd != null) {
                 EasyTracker.getInstance(activity).send(
                         MapBuilder.createEvent("level_editor", "generate", "generated", null)
-                            .build());
-                
+                                .build());
+
                 pd.dismiss();
                 activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
                 field.setField(result);
                 activity.setStepRemainText();
-                
+
                 activity.findViewById(R.id.gameView).postInvalidate();
             }
             activity.generateTask = null;
@@ -224,16 +224,16 @@ public class LevelEditorActivity extends Activity {
 
     private SolveTask solveTask = null;
     private GenerateTask generateTask = null;
-    
+
     private GeneratorOption lastOpt = new GeneratorOption();
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.game_action, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -374,10 +374,10 @@ public class LevelEditorActivity extends Activity {
         } else {
             field = (AnimatedGameField) savedInstanceState.getSerializable(STATE_FIELD);
             field.setGameView(gameView);
-            
+
             lastOpt = (GeneratorOption) savedInstanceState.getSerializable(STATE_GENERATOR_OPTION);
-            
-            currentType = savedInstanceState.getChar(STATE_CURRENT_ELEMENT); 
+
+            currentType = savedInstanceState.getChar(STATE_CURRENT_ELEMENT);
         }
 
         GridView gridview = (GridView) findViewById(R.id.gridElements);
@@ -410,7 +410,7 @@ public class LevelEditorActivity extends Activity {
 
         return stepLimit;
     }
-    
+
     private int readIntFromEditText(Dialog d, int viewId) {
         EditText et = (EditText) d.findViewById(viewId);
         String s = et.getText().toString();
@@ -430,7 +430,7 @@ public class LevelEditorActivity extends Activity {
             public void onClick(View v) {
                 EasyTracker.getInstance(LevelEditorActivity.this).send(
                         MapBuilder.createEvent("level_editor", "ui_button", "save", null)
-                            .build());
+                                .build());
                 String fileName = new SimpleDateFormat("yyyyMMddHHmmssS", Locale.US)
                         .format(Calendar.getInstance().getTime());
                 saveLevel(fileName, true);
@@ -444,7 +444,7 @@ public class LevelEditorActivity extends Activity {
             public void onClick(View v) {
                 EasyTracker.getInstance(LevelEditorActivity.this).send(
                         MapBuilder.createEvent("level_editor", "ui_button", "load", null)
-                            .build());
+                                .build());
                 Intent intent = new Intent(LevelEditorActivity.this, LevelEditorLoadActivity.class);
                 startActivityForResult(intent, LOAD_LEVEL_REQUEST_CODE);
             }
@@ -457,8 +457,8 @@ public class LevelEditorActivity extends Activity {
             public void onClick(View v) {
                 EasyTracker.getInstance(LevelEditorActivity.this).send(
                         MapBuilder.createEvent("level_editor", "ui_button", "generate", null)
-                            .build());
-                
+                                .build());
+
                 final Dialog d = new Dialog(LevelEditorActivity.this);
                 d.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -508,9 +508,9 @@ public class LevelEditorActivity extends Activity {
                         opt.shift = ((CheckBox) d.findViewById(R.id.cbColorShift)).isChecked();
                         opt.nomatch = ((CheckBox) d.findViewById(R.id.cbNoMatchArea)).isChecked();
                         opt.wrap = ((CheckBox) d.findViewById(R.id.cbWrap)).isChecked();
-                        
+
                         opt.optimal = ((CheckBox) d.findViewById(R.id.cbOptimal)).isChecked();
-                    
+
                         lastOpt = opt;
 
                         generateTask = new GenerateTask(LevelEditorActivity.this);
@@ -523,8 +523,10 @@ public class LevelEditorActivity extends Activity {
 
                 ((EditText) d.findViewById(R.id.tbStepLo)).setText(Integer.toString(lastOpt.stepLo));
                 ((EditText) d.findViewById(R.id.tbStepHi)).setText(Integer.toString(lastOpt.stepHi));
-                ((EditText) d.findViewById(R.id.tbColorLo)).setText(Integer.toString(lastOpt.colorLo));
-                ((EditText) d.findViewById(R.id.tbColorHi)).setText(Integer.toString(lastOpt.colorHi));
+                ((EditText) d.findViewById(R.id.tbColorLo)).setText(Integer
+                        .toString(lastOpt.colorLo));
+                ((EditText) d.findViewById(R.id.tbColorHi)).setText(Integer
+                        .toString(lastOpt.colorHi));
                 ((CheckBox) d.findViewById(R.id.cbStone)).setChecked(lastOpt.stone);
                 ((CheckBox) d.findViewById(R.id.cbRainbow)).setChecked(lastOpt.rainbow);
                 ((CheckBox) d.findViewById(R.id.cbArrow)).setChecked(lastOpt.arrow);
@@ -551,8 +553,8 @@ public class LevelEditorActivity extends Activity {
             public void onClick(final View v) {
                 EasyTracker.getInstance(LevelEditorActivity.this).send(
                         MapBuilder.createEvent("level_editor", "ui_button", "solve", null)
-                            .build());
-                
+                                .build());
+
                 final int stepLimit = readStepLimit();
 
                 if (stepLimit > 0) {
@@ -569,8 +571,8 @@ public class LevelEditorActivity extends Activity {
             public void onClick(View v) {
                 EasyTracker.getInstance(LevelEditorActivity.this).send(
                         MapBuilder.createEvent("level_editor", "ui_button", "play", null)
-                            .build());
-                
+                                .build());
+
                 int stepLimit = readStepLimit();
 
                 if (stepLimit > 0) {
@@ -691,7 +693,7 @@ public class LevelEditorActivity extends Activity {
         }
 
     }
-    
+
     @Override
     public void onStart() {
         super.onStart();

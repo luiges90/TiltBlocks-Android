@@ -14,17 +14,17 @@ public class GameBeatenActivity extends Activity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.game_beaten_fadein, R.anim.game_beaten_fadeout);
         setContentView(R.layout.activity_game_beaten);
-        
-        this.findViewById(R.id.btnClearedMenu).setOnClickListener(new OnClickListener(){
-            
+
+        this.findViewById(R.id.btnClearedMenu).setOnClickListener(new OnClickListener() {
+
             @Override
             public void onClick(View arg0) {
                 GameBeatenActivity.this.finish();
             }
-            
+
         });
     }
-    
+
     @Override
     public void onStart() {
         super.onStart();

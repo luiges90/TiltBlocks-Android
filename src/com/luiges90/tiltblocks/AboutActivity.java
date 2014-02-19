@@ -28,28 +28,29 @@ public class AboutActivity extends Activity {
 
         CheckBox telemetry = (CheckBox) this.findViewById(R.id.cbTelemetry);
         telemetry.setChecked(GoogleAnalytics.getInstance(this).getAppOptOut());
-        
-        telemetry.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+        telemetry.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     EasyTracker.getInstance(AboutActivity.this).send(
                             MapBuilder.createEvent("track", "track", "opt out", null)
-                                .build());
+                                    .build());
                 } else {
                     EasyTracker.getInstance(AboutActivity.this).send(
                             MapBuilder.createEvent("track", "track", "opt in", null)
-                                .build());
+                                    .build());
                 }
-                
-                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(AboutActivity.this);
+
+                SharedPreferences settings = PreferenceManager
+                        .getDefaultSharedPreferences(AboutActivity.this);
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putBoolean(MenuActivity.TRACK_PREF_KEY, isChecked);
 
                 editor.commit();
             }
-            
+
         });
     }
 

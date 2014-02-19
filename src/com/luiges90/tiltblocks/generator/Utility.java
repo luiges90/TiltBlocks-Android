@@ -16,7 +16,8 @@ public class Utility {
 
     private static final Random rng = new Random();
 
-    private Utility(){}
+    private Utility() {
+    }
 
     public static int randBetween(int lo, int hi) {
         if (lo > hi) {
@@ -48,7 +49,7 @@ public class Utility {
     public static boolean chance(double prob) {
         return (prob / 100.0 >= rng.nextDouble());
     }
-    
+
     public static Set<Point> getRandomArea(Set<Point> region, int cnt) {
         Set<Point> points = new HashSet<Point>(cnt);
 
@@ -82,10 +83,10 @@ public class Utility {
 
         return points;
     }
-    
+
     public static Set<Point> getEdgeArea(Collection<Point> area) {
         Set<Point> result = new HashSet<Point>();
-        
+
         for (Point p : area) {
             Point edge;
 
@@ -109,11 +110,11 @@ public class Utility {
                 result.add(edge);
             }
         }
-        
+
         return result;
     }
-    
-    public static void addWallsAroundArea(GameField f, Collection<Point> area) 
+
+    public static void addWallsAroundArea(GameField f, Collection<Point> area)
     {
         for (Point p : area) {
             Point edge;
